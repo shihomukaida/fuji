@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Stages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Start</th>
+      <th>Finish</th>
+      <th>Gyara</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stages.each do |stage| %>
+      <tr>
+        <td><%= stage.name %></td>
+        <td><%= stage.date %></td>
+        <td><%= stage.start.strftime('%H:%M') %></td>
+        <td><%= stage.finish.strftime('%H:%M') %></td>
+        <td><%= stage.gyara %></td>
+        <td><%= link_to 'Show', stage %></td>
+        <td><%= link_to 'Edit', edit_stage_path(stage) %></td>
+        <td><%= link_to 'Destroy', stage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Stage', new_stage_path %>
